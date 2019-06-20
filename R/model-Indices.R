@@ -1,4 +1,4 @@
-source("r/model-common.R")
+source("R/model-common.R")
 
 #' Indices
 #'

@@ -1,4 +1,4 @@
-source("r/config.R")
+source("R/config.R")
 
 model.common.con.StockViz <- function() {
   DBI::dbConnect(odbc::odbc(),
