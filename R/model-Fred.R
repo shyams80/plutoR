@@ -1,5 +1,3 @@
-source("R/model-common.R")
-
 #' St. Louis Fed FRED cache
 #'
 #' @references \url{https://fred.stlouisfed.org/}

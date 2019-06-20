@@ -1,5 +1,3 @@
-source("R/model-common.R")
-
 #' Indices
 #'
 #' @references

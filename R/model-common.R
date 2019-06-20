@@ -1,5 +1,3 @@
-source("R/config.R")
-
 model.common.con.StockViz <- function() {
   DBI::dbConnect(odbc::odbc(),
   	Driver = config.db.StockViz.driver,
