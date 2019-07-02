@@ -2,6 +2,7 @@
 
 export(Fred)
 export(Indices)
+export(MutualFundsIndia)
 exportClasses(Fred)
 exportClasses(Indices)
-import(methods)
+exportClasses(MutualFundsIndia)

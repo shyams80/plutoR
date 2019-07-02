@@ -5,21 +5,6 @@
 \alias{Indices-class}
 \alias{Indices}
 \title{Indices}
-\arguments{
-\item{NAME}{string, name of the index. Use this to query the time-series}
-
-\item{TIME_STAMP}{date}
-
-\item{HIGH}{numeric, nullable}
-
-\item{LOW}{numeric, nullable}
-
-\item{OPEN}{numeric, nullable}
-
-\item{CLOSE}{numeric}
-
-\item{VOLUME}{numeric, nullable}
-}
 \description{
 Indices
 }
@@ -31,24 +16,11 @@ Indices
 \item{\code{NseTimeSeries()}}{Query the index time-series published by the NSE}
 }}
 
-\examples{
-library(dbplyr)
-library(dplyr)
-library(odbc)
-library(plutoR)
-options("scipen"=999)
-
-# get all NSE indices for the latest time_stamp
-indices<-Indices()
-maxDt <- (indices$NseTimeSeries() \%>\% summarize(MAX_TS = max(TIME_STAMP)) \%>\% collect())$MAX_TS[1]
-indices$NseTimeSeries() \%>\%
-     group_by(NAME) \%>\%
-     filter(TIME_STAMP == maxDt) \%>\%
-     select(NAME) \%>\%
-     print(n = Inf)
-
-}
 \references{
 \url{https://nseindia.com/}
 \url{https://bseindia.com/}
+
+Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
+
+Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/Indices.ipynb}
 }

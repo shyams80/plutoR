@@ -4,31 +4,10 @@
 #' \url{https://nseindia.com/}
 #' \url{https://bseindia.com/}
 #'
-#' @param NAME string, name of the index. Use this to query the time-series
-#' @param TIME_STAMP date
-#' @param HIGH numeric, nullable
-#' @param LOW numeric, nullable
-#' @param OPEN numeric, nullable
-#' @param CLOSE numeric
-#' @param VOLUME numeric, nullable
+#' Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 #'
-#' @examples
-#' library(dbplyr)
-#' library(dplyr)
-#' library(odbc)
-#' library(plutoR)
-#' options("scipen"=999)
+#' Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/Indices.ipynb}
 #'
-#' # get all NSE indices for the latest time_stamp
-#' indices<-Indices()
-#' maxDt <- (indices$NseTimeSeries() %>% summarize(MAX_TS = max(TIME_STAMP)) %>% collect())$MAX_TS[1]
-#' indices$NseTimeSeries() %>%
-#'      group_by(NAME) %>%
-#'      filter(TIME_STAMP == maxDt) %>%
-#'      select(NAME) %>%
-#'      print(n = Inf)
-#'
-#' @import methods
 #' @export Indices
 #' @exportClass Indices
 
