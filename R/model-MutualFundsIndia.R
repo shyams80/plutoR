@@ -4,7 +4,7 @@
 #'
 #' Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/MutualFundsIndia.html}
 #'
-#' Sample notebook: \url{}
+#' Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/MutualFundsIndia.ipynb}
 #'
 #' @export MutualFundsIndia
 #' @exportClass MutualFundsIndia
@@ -31,7 +31,7 @@ MutualFundsIndia <- setRefClass('MutualFundsIndia',
       "Query the scheme-wise assets under management (AUM) of different asset managers and their 'schemes'"
 
       return (tbl(.self$conn, 'MF_SCHEMEWISE_AUM') %>%
-                select(PERIOD, SCHEME_CODE, SCHEME_NAME, AVG_AUM_WO_FOFD, AVG_AUM_FOFD))
+                select(PERIOD, SCHEME_CODE = AMFI_CODE, SCHEME_NAME, AVG_AUM_WO_FOFD, AVG_AUM_FOFD))
     },
     NavTimeSeries = function(){
       "Query for the NAVs of different funds"
