@@ -43,7 +43,7 @@ MutualFundsIndia <- setRefClass('MutualFundsIndia',
       "Query for the monthly reported portfolios of different funds"
 
       return (tbl(.self$conn, 'MF_PORTFOLIO_HISTORY') %>%
-                select(SCHEME_CODE, PORTFOLIO_DATE, INSTRUMENT, INSTRUMENT_TYPE, SYMBOL, NAME, SECTOR, WEIGHTAGE))
+                select(SCHEME_CODE, PORTFOLIO_DATE, INSTRUMENT, INSTRUMENT_TYPE, SYMBOL, NAME, SECTOR, INDUSTRY_BSE, WEIGHTAGE))
     }
   ))
 

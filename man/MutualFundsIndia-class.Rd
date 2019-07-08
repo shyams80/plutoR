@@ -27,5 +27,5 @@ Amfi India mutual-fund cache
 
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/MutualFundsIndia.html}
 
-Sample notebook: \url{}
+Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/MutualFundsIndia.ipynb}
 }
