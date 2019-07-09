@@ -1,7 +1,7 @@
 Package: plutoR
 Type: Package
 Title: Financial Data Models for Pluto
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person('Shyam', email='shyam.udupa@gmail.com', role=c('aut', 'cre'))
 Maintainer: Shyam <shyam.udupa@gmail.com>
 Description: Data-models for accessing financial data-sets cached on the pluto compute cloud.

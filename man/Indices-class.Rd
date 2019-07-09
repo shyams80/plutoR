@@ -11,7 +11,11 @@ Indices
 \section{Methods}{
 
 \describe{
+\item{\code{BseConstituents()}}{Query the latest constituents of BSE indices}
+
 \item{\code{BseTimeSeries()}}{Query the index time-series published by the BSE}
+
+\item{\code{NseConstituents()}}{Query the latest constituents of NSE indices}
 
 \item{\code{NseTimeSeries()}}{Query the index time-series published by the NSE}
 }}
