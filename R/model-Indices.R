@@ -20,6 +20,12 @@ Indices <- setRefClass('Indices',
        .self$conn <- model.common.con.StockViz()
        .self$connUs2 <- model.common.con.StockVizUs2()
      },
+     IndiaVixTimeSeries = function(){
+        "Query the India VIX time-series data published by the NSE"
+
+        return(tbl(.self$conn, 'VIX_HISTORY') %>%
+         select(TIME_STAMP, HIGH = PX_HIGH, LOW = PX_LOW, OPEN = PX_OPEN, CLOSE = PX_CLOSE))
+     },
      IndiaGsecTimeSeries = function(){
         "Query the Indian Government Soverign Bond index time-series published by the CCIL"
 
