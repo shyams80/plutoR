@@ -15,14 +15,20 @@ Indices
 
 \item{\code{BseTimeSeries()}}{Query the index time-series published by the BSE}
 
+\item{\code{IndiaGsecTimeSeries()}}{Query the Indian Government Soverign Bond index time-series published by the CCIL}
+
 \item{\code{NseConstituents()}}{Query the latest constituents of NSE indices}
 
 \item{\code{NseTimeSeries()}}{Query the index time-series published by the NSE}
+
+\item{\code{YahooFinanceTimeSeries()}}{Query the index time-series published by Yahoo Finance}
 }}
 
 \references{
 \url{https://nseindia.com/}
 \url{https://bseindia.com/}
+\url{https://www.ccilindia.com}
+\url{https://finance.yahoo.com/}
 
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 
