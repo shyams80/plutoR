@@ -17,6 +17,8 @@ Indices
 
 \item{\code{IndiaGsecTimeSeries()}}{Query the Indian Government Soverign Bond index time-series published by the CCIL}
 
+\item{\code{IndiaVixTimeSeries()}}{Query the India VIX time-series data published by the NSE}
+
 \item{\code{NseConstituents()}}{Query the latest constituents of NSE indices}
 
 \item{\code{NseTimeSeries()}}{Query the index time-series published by the NSE}
