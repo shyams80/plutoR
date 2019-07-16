@@ -25,3 +25,13 @@ model.common.con.StockVizUs2 <- function() {
    UID = config.db.StockVizUs2.user,
    PWD = config.db.StockVizUs2.password)
 }
+
+model.common.con.StockVizDyn <- function() {
+   DBI::dbConnect(RPostgres::Postgres(),
+#   Driver = config.db.StockVizDyn.driver,
+   host = config.db.StockVizDyn.server,
+   dbname = config.db.StockVizDyn.dbName,
+   user = config.db.StockVizDyn.user,
+   password = config.db.StockVizDyn.password,
+   sslmode='allow')
+}
