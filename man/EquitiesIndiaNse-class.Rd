@@ -13,6 +13,8 @@ Equities India NSE
 \describe{
 \item{\code{CorporateActions()}}{Query the corporate actions for listed stocks}
 
+\item{\code{CorporateEvents()}}{Query the corporate events for listed stocks}
+
 \item{\code{CorporateResults()}}{Query to CorporateResults for a specific period and stock}
 
 \item{\code{CorporateResultsMeta()}}{Query to obtain the REF_ID to lookup CorporateResults for a specific period}

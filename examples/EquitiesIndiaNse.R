@@ -67,12 +67,9 @@ equitiesIndiaNse$EodTimeSeries() %>%
 
 print("adjusted eod")
 
-startInt <- as.integer(format(startDt, '%Y%m%d'))
-endInt <- as.integer(format(endDt, '%Y%m%d'))
-
 equitiesIndiaNse$EodAdjustedTimeSeries() %>%
-  filter(SYMBOL == "UPL" & DATE_STAMP >= startInt & DATE_STAMP <= endInt) %>%
-  arrange(DATE_STAMP) %>%
+  filter(SYMBOL == "UPL" & TIME_STAMP >= startDt & TIME_STAMP <= endDt) %>%
+  arrange(TIME_STAMP) %>%
   print(n=Inf)
 
 # fetch the last 10 day returns for State Bank of India
@@ -91,6 +88,13 @@ equitiesIndiaNse$CorporateActions() %>%
   top_n(10, wt = EX_DATE) %>%
   print(n=Inf)
 
+# fetch the last 10 corporate events for State Bank of India
+
+print("the last 10 corporate actions for SBIN: ")
+equitiesIndiaNse$CorporateEvents() %>%
+  filter(SYMBOL == "SBIN") %>%
+  top_n(10, wt = EVENT_DATE) %>%
+  print(n=Inf)
 
 # fetch the last 24 quarter EPS for State Bank of India
 

@@ -51,7 +51,7 @@ EquitiesIndiaNse <- setRefClass('EquitiesIndiaNse',
       "Query end-of-day price and volume time-series adjusted for splits, bonus and dividends for listed stocks"
 
       return(tbl(.self$connDyn, 'eod_adjusted_nse') %>%
-               select(SYMBOL = ticker, DATE_STAMP = date_stamp,
+               select(SYMBOL = ticker, TIME_STAMP = date_stamp,
                       HIGH = h, LOW = l, OPEN = o, CLOSE = c, VOLUME = v))
     },
     DailyReturns = function(){
@@ -65,6 +65,12 @@ EquitiesIndiaNse <- setRefClass('EquitiesIndiaNse',
 
       return(tbl(.self$conn, 'CORP_ACTION') %>%
                select(SYMBOL, SERIES, EX_DATE, PURPOSE, WHEN_UPDATED = UPDATE_DT))
+    },
+    CorporateEvents = function(){
+      "Query the corporate events for listed stocks"
+
+      return(tbl(.self$conn, 'CORP_RESULTS_DATE') %>%
+               select(SYMBOL, DISC_DATE, PURPOSE = TITLE, EVENT_DATE = BM_DATE))
     },
     CorporateResultsMeta = function(){
       "Query to obtain the REF_ID to lookup CorporateResults for a specific period"
