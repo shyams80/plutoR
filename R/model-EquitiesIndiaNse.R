@@ -7,9 +7,6 @@
 #'
 #' Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/EquitiesIndiaNse.ipynb}
 #'
-#' Changes from the python version:
-#'   'DATE_STAMP' in EodAdjustedTimeSeries, not 'TIME_STAMP'. And it is an integer.
-#'
 #'
 #' @export EquitiesIndiaNse
 #' @exportClass EquitiesIndiaNse

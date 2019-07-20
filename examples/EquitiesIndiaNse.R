@@ -90,7 +90,7 @@ equitiesIndiaNse$CorporateActions() %>%
 
 # fetch the last 10 corporate events for State Bank of India
 
-print("the last 10 corporate actions for SBIN: ")
+print("the last 10 corporate events for SBIN: ")
 equitiesIndiaNse$CorporateEvents() %>%
   filter(SYMBOL == "SBIN") %>%
   top_n(10, wt = EVENT_DATE) %>%

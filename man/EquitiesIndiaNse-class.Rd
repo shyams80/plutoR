@@ -38,7 +38,4 @@ Equities India NSE
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/EquitiesIndiaNse.html}
 
 Sample notebook: \url{https://github.com/shyams80/plutons/blob/master/docs-R/EquitiesIndiaNse.ipynb}
-
-Changes from the python version:
-  'DATE_STAMP' in EodAdjustedTimeSeries, not 'TIME_STAMP'. And it is an integer.
 }
