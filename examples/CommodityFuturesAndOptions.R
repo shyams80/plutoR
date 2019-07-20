@@ -61,7 +61,7 @@ t1 %>%
   arrange(desc(TOTAL_OI)) %>%
   print()
 
-# get all the commodity futures that are being traded in MCX
+# get all the commodity futures that are being traded in NCDEX
 
 print("commodity futures that are being traded in NCDEX")
 

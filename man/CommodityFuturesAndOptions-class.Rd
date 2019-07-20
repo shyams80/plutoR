@@ -4,9 +4,9 @@
 \name{CommodityFuturesAndOptions-class}
 \alias{CommodityFuturesAndOptions-class}
 \alias{CommodityFuturesAndOptions}
-\title{Equities India NSE}
+\title{Commodity Futures and Options}
 \description{
-Equities India NSE
+Commodity Futures and Options
 }
 \section{Methods}{
 
@@ -19,7 +19,9 @@ Equities India NSE
 }}
 
 \references{
-\url{https://nseindia.com/}
+\url{https://www.mcxindia.com/}
+\url{https://www.ncdex.com/}
+\url{https://www.cmegroup.com/}
 
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/CommodityFuturesAndOptions.html}
 
