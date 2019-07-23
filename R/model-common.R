@@ -35,3 +35,13 @@ model.common.con.StockVizDyn <- function() {
    password = config.db.StockVizDyn.password,
    sslmode='allow')
 }
+
+model.common.con.StockVizBeka <- function() {
+   DBI::dbConnect(RPostgres::Postgres(),
+                  #   Driver = config.db.StockVizBeka.driver,
+                  host = config.db.StockVizBeka.server,
+                  dbname = config.db.StockVizBeka.dbName,
+                  user = config.db.StockVizBeka.user,
+                  password = config.db.StockVizBeka.password,
+                  sslmode='allow')
+}
