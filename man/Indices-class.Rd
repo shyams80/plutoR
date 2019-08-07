@@ -19,6 +19,8 @@ Indices
 
 \item{\code{FamaFrenchIndustry49Daily()}}{Query the Fama-French daily returns of 49 different industries (http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_49_ind_port.html)}
 
+\item{\code{FamaFrenchMomentumDaily()}}{Query the Fama-French daily returns of momentum factor and portfolios}
+
 \item{\code{IndiaGsecTimeSeries()}}{Query the Indian Government Soverign Bond index time-series published by the CCIL}
 
 \item{\code{IndiaVixTimeSeries()}}{Query the India VIX time-series data published by the NSE}

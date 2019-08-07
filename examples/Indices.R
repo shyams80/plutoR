@@ -96,3 +96,11 @@ indices$FamaFrenchIndustry49Daily() %>%
   summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
   arrange(ST) %>%
   print(n=Inf)
+
+# show data-ranges for Fama-french momentum daily returns
+
+indices$FamaFrenchMomentumDaily() %>%
+  group_by(KEY_ID) %>%
+  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
+  arrange(ST) %>%
+  print(n=Inf)
