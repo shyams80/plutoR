@@ -5,6 +5,7 @@
 #' \url{https://bseindia.com/}
 #' \url{https://www.ccilindia.com}
 #' \url{https://finance.yahoo.com/}
+#' \url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/index.html}
 #'
 #' Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 #'
@@ -61,5 +62,17 @@ Indices <- setRefClass('Indices',
 
         return(tbl(.self$connUs2, 'BHAV_YAHOO') %>%
          select(NAME = SYMBOL, TIME_STAMP, HIGH = H, LOW = L, OPEN = O, CLOSE = C, CLOSE_ADJ = AC, VOLUME = V))
+     },
+     FamaFrench5Factor3x2Daily = function(){
+       "Query the Fama-French 5-factor daily returns (http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html)"
+
+       return(tbl(.self$connUs2, 'FAMA_FRENCH_5_FACTOR_DAILY') %>%
+                select(TIME_STAMP, KEY_ID, DAILY_RETURN))
+     },
+     FamaFrenchIndustry49Daily = function(){
+       "Query the Fama-French daily returns of 49 different industries (http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_49_ind_port.html)"
+
+       return(tbl(.self$connUs2, 'FAMA_FRENCH_INDUSTRY_49_DAILY') %>%
+                select(TIME_STAMP, KEY_ID, DAILY_RETURN))
      }
   ))

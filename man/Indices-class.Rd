@@ -15,6 +15,10 @@ Indices
 
 \item{\code{BseTimeSeries()}}{Query the index time-series published by the BSE}
 
+\item{\code{FamaFrench5Factor3x2Daily()}}{Query the Fama-French 5-factor daily returns (http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_5_factors_2x3.html)}
+
+\item{\code{FamaFrenchIndustry49Daily()}}{Query the Fama-French daily returns of 49 different industries (http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_49_ind_port.html)}
+
 \item{\code{IndiaGsecTimeSeries()}}{Query the Indian Government Soverign Bond index time-series published by the CCIL}
 
 \item{\code{IndiaVixTimeSeries()}}{Query the India VIX time-series data published by the NSE}
@@ -31,6 +35,7 @@ Indices
 \url{https://bseindia.com/}
 \url{https://www.ccilindia.com}
 \url{https://finance.yahoo.com/}
+\url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/index.html}
 
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 
