@@ -80,27 +80,4 @@ indices$YahooFinanceTimeSeries() %>%
   arrange(NAME) %>%
   print(n=Inf)
 
-# show data-ranges for Fama-french factors
 
-indices$FamaFrench5Factor3x2Daily() %>%
-  group_by(KEY_ID) %>%
-  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
-  arrange(KEY_ID) %>%
-  print(n=Inf)
-
-
-# show data-ranges for Fama-french industry daily returns
-
-indices$FamaFrenchIndustry49Daily() %>%
-  group_by(KEY_ID) %>%
-  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
-  arrange(ST) %>%
-  print(n=Inf)
-
-# show data-ranges for Fama-french momentum daily returns
-
-indices$FamaFrenchMomentumDaily() %>%
-  group_by(KEY_ID) %>%
-  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
-  arrange(ST) %>%
-  print(n=Inf)
