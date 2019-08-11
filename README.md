@@ -10,6 +10,10 @@ See [pluto/presentation](https://github.com/shyams80/pluto/raw/master/media/Plut
 
 plutoR provides the data-model for accessing financial data-sets cached in the compute cloud. For examples, see the sample notebooks on [pluto/docs-R](https://github.com/shyams80/plutons/tree/master/docs-R).
 
+## Do you have documentation?
+
+Yes! [R docs](https://shyams80.github.io/plutoR/docs/index.html), [Python docs](https://plutopy.readthedocs.io/en/latest/?badge=latest)
+
 ## Do you py?
 
 Yes! plutoPy is on [github](https://github.com/shyams80/plutoPy)
