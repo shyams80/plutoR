@@ -12,7 +12,7 @@ plutoR provides the data-model for accessing financial data-sets cached in the c
 
 ## Do you have documentation?
 
-Yes! [R docs](https://shyams80.github.io/plutoR/docs/index.html), [Python docs](https://plutopy.readthedocs.io/en/latest/?badge=latest)
+Yes! [R docs](https://shyams80.github.io/plutoR/docs/reference/index.html), [Python docs](https://plutopy.readthedocs.io/en/latest/?badge=latest)
 
 ## Do you py?
 
