@@ -5,6 +5,7 @@
 #' \url{https://bseindia.com/}
 #' \url{https://www.ccilindia.com}
 #' \url{https://finance.yahoo.com/}
+#' \url{https://indices.barclays}
 #'
 #' Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 #'
@@ -61,5 +62,17 @@ Indices <- setRefClass('Indices',
 
         return(tbl(.self$connUs2, 'BHAV_YAHOO') %>%
          select(NAME = SYMBOL, TIME_STAMP, HIGH = H, LOW = L, OPEN = O, CLOSE = C, CLOSE_ADJ = AC, VOLUME = V))
+     },
+     BarclaysMeta = function(){
+       "Meta information about the BarclaysTimeSeries by TICKER"
+
+       return(tbl(.self$connUs2, 'BARCLAYS_META') %>%
+                select(TICKER, DATE_LIVE, DATE_BASE, NAME = NAME_WEB, FAMILY = NAME_FAMILY, RETURN_TYPE, CURRENCY))
+     },
+     BarclaysTimeSeries = function(){
+       "Query the index time-series published by Barclays"
+
+       return(tbl(.self$connUs2, 'BARCLAYS_DATA') %>%
+                select(TICKER, TIME_STAMP, CLOSE = VAL))
      }
   ))

@@ -11,6 +11,10 @@ Indices
 \section{Methods}{
 
 \describe{
+\item{\code{BarclaysMeta()}}{Meta information about the BarclaysTimeSeries by TICKER}
+
+\item{\code{BarclaysTimeSeries()}}{Query the index time-series published by Barclays}
+
 \item{\code{BseConstituents()}}{Query the latest constituents of BSE indices}
 
 \item{\code{BseTimeSeries()}}{Query the index time-series published by the BSE}
@@ -31,6 +35,7 @@ Indices
 \url{https://bseindia.com/}
 \url{https://www.ccilindia.com}
 \url{https://finance.yahoo.com/}
+\url{https://indices.barclays}
 
 Read the python documentation for information on the data-attributes \url{https://plutopy.readthedocs.io/en/latest/Indices.html}
 

@@ -80,4 +80,13 @@ indices$YahooFinanceTimeSeries() %>%
   arrange(NAME) %>%
   print(n=Inf)
 
+# fetch index date ranges published by Barclays
+
+indices$BarclaysMeta() %>%
+  inner_join(indices$BarclaysTimeSeries()) %>%
+  group_by(FAMILY, NAME) %>%
+  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
+  select(FAMILY, NAME, ST, ET) %>%
+  arrange(FAMILY) %>%
+  print(n = Inf)
 
