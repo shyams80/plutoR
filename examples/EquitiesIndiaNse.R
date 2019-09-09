@@ -1,9 +1,9 @@
-library(dbplyr)
-library(dplyr)
-library(odbc)
-library(RPostgres)
+library(DBI)
+library(plutoDbR)
 library(plutoR)
-options("scipen"=999)
+library(tidyverse)
+
+options("scipen"=99999)
 source("../R/config.R")
 
 equitiesIndiaNse <- EquitiesIndiaNse()
@@ -12,8 +12,9 @@ equitiesIndiaNse <- EquitiesIndiaNse()
 
 print("earliest 10 listed equity")
 equitiesIndiaNse$Tickers() %>%
-  top_n(-10, wt = DATE_LISTING) %>%
-  print(n)
+  arrange(DATE_LISTING) %>%
+  head(10) %>%
+  print(n=Inf)
 
 # fetch some "misc" info for State Bank of India
 
@@ -50,7 +51,8 @@ equitiesIndiaNse$EodTimeSeries() %>%
 print("last 10 day EOD prices for SBIN equity:")
 equitiesIndiaNse$EodTimeSeries() %>%
   filter(SYMBOL == 'SBIN' & (SERIES == 'EQ' | SERIES == 'BE')) %>%
-  top_n(10, wt = TIME_STAMP) %>%
+  arrange(desc(TIME_STAMP)) %>%
+  head(10) %>%
   print(n=Inf)
 
 # UPL did a 1:2 bonus on 2019-07-02. see unadjusted eod vs. adjusted eod
@@ -77,7 +79,8 @@ equitiesIndiaNse$EodAdjustedTimeSeries() %>%
 print("the last 10 day returns for SBIN: ")
 equitiesIndiaNse$DailyReturns() %>%
   filter(SYMBOL == "SBIN") %>%
-  top_n(10, wt = TIME_STAMP) %>%
+  arrange(desc(TIME_STAMP)) %>%
+  head(10) %>%
   print(n=Inf)
 
 # fetch the last 10 corporate actions for State Bank of India
@@ -85,7 +88,8 @@ equitiesIndiaNse$DailyReturns() %>%
 print("the last 10 corporate actions for SBIN: ")
 equitiesIndiaNse$CorporateActions() %>%
   filter(SYMBOL == "SBIN") %>%
-  top_n(10, wt = EX_DATE) %>%
+  arrange(desc(EX_DATE)) %>%
+  head(10) %>%
   print(n=Inf)
 
 # fetch the last 10 corporate events for State Bank of India
@@ -93,7 +97,8 @@ equitiesIndiaNse$CorporateActions() %>%
 print("the last 10 corporate events for SBIN: ")
 equitiesIndiaNse$CorporateEvents() %>%
   filter(SYMBOL == "SBIN") %>%
-  top_n(10, wt = EVENT_DATE) %>%
+  arrange(desc(EVENT_DATE)) %>%
+  head(10) %>%
   print(n=Inf)
 
 # fetch the last 24 quarter EPS for State Bank of India
@@ -101,9 +106,10 @@ equitiesIndiaNse$CorporateEvents() %>%
 print("the last 24 quarter EPS for SBIN: ")
 refs <- equitiesIndiaNse$CorporateResultsMeta() %>%
   filter(SYMBOL == 'SBIN' & IS_CONSOLIDATED == 0 & PERIOD %like% '%quarter') %>%
-  top_n(24, wt=PERIOD_END) %>%
-  select(REF_ID, PERIOD_END, PERIOD) %>%
-  collect()
+  collect() %>%
+  arrange(desc(PERIOD_END)) %>%
+  head(24) %>%
+  select(REF_ID, PERIOD_END, PERIOD)
 
 print(refs)
 
@@ -112,9 +118,21 @@ for(i in 1:nrow(refs)){
   print(ref)
 
   rid <- ref$REF_ID[1]
-  equitiesIndiaNse$CorporateResults() %>%
-    filter(REF_ID == rid & KEY %like% '%diluted%before%') %>%
-    print(n=Inf)
+
+  t1 <- equitiesIndiaNse$CorporateResults() %>%
+    filter(REF_ID == rid & (KEY %like% '%diluted%before%' |
+                              (H1 %like% '%before%' & KEY %like% '%diluted%'))) %>%
+    collect() %>%
+    as.data.frame()
+
+  if(nrow(t1) == 0){
+    t2 <- equitiesIndiaNse$CorporateResults() %>%
+      filter(REF_ID == rid & (KEY %like% '%diluted' | H1 %like% '%diluted%')) %>%
+      as.data.frame()
+
+    print(t2)
+  } else {
+    print(t1)
+  }
+
 }
-
-

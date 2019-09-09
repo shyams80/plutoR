@@ -1,7 +1,8 @@
-library(dbplyr)
-library(dplyr)
-library(odbc)
+library(DBI)
+library(plutoDbR)
 library(plutoR)
+library(tidyverse)
+
 options("scipen"=999)
 source("../R/config.R")
 

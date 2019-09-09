@@ -1,7 +1,8 @@
-library(dbplyr)
-library(dplyr)
-library(odbc)
+library(DBI)
+library(plutoDbR)
 library(plutoR)
+library(tidyverse)
+
 options("scipen"=999)
 source("../R/config.R")
 
@@ -65,7 +66,8 @@ futureDate <- as.Date(Sys.Date() + 30*3)
 
 eqFo$LotSize() %>%
   filter(SYMBOL == "NIFTY" & CONTRACT <= futureDate) %>%
-  top_n(10, wt = CONTRACT) %>%
+  arrange(desc(CONTRACT)) %>%
+  head(15) %>%
   print()
 
 

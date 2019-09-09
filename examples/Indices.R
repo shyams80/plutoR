@@ -1,7 +1,8 @@
-library(dbplyr)
-library(dplyr)
-library(odbc)
+library(DBI)
+library(plutoDbR)
 library(plutoR)
+library(tidyverse)
+
 options("scipen"=999)
 source("../R/config.R")
 
@@ -12,6 +13,13 @@ indices<-Indices()
 indices$IndiaVixTimeSeries() %>%
   top_n(10, wt=TIME_STAMP) %>%
   print(n=Inf)
+
+# if top_n doesn't work, use arrange %>% head
+indices$IndiaVixTimeSeries() %>%
+  arrange(desc(TIME_STAMP)) %>%
+  head(10) %>%
+  print(n=Inf)
+
 
 #fetch the latest rates across tenors
 
