@@ -1,45 +1,35 @@
 model.common.con.StockViz <- function() {
    dbConnect(plutoDbR::Pluto(),
-             serverId="NORWAY:StockViz",
+             database="NORWAY:StockViz:R",
              backendServer="mssql",
-             host=config.redis.server,
-             password=config.redis.password,
-             db=1)
+             server=config.webservice)
 }
 
 model.common.con.StockVizUs <- function() {
    dbConnect(plutoDbR::Pluto(),
-             serverId="NORWAY:StockVizUs",
+             database="NORWAY:StockVizUs:R",
              backendServer="mssql",
-             host=config.redis.server,
-             password=config.redis.password,
-             db=2)
+             server=config.webservice)
 }
 
 model.common.con.StockVizUs2 <- function() {
    dbConnect(plutoDbR::Pluto(),
-             serverId="NORWAY:StockVizUs2",
+             database="NORWAY:StockVizUs2:R",
              backendServer="mssql",
-             host=config.redis.server,
-             password=config.redis.password,
-             db=3)
+             server=config.webservice)
 }
 
 
 model.common.con.StockVizDyn <- function() {
    dbConnect(plutoDbR::Pluto(),
-             serverId="SWEDEN:StockVizDyn",
+             database="SWEDEN:StockVizDyn:R",
              backendServer="postgres",
-             host=config.redis.server,
-             password=config.redis.password,
-             db=4)
+             server=config.webservice)
 }
 
 model.common.con.StockVizBeka <- function() {
    dbConnect(plutoDbR::Pluto(),
-             serverId="WINDOWS:StockVizBeka",
+             database="WINDOWS:StockVizBeka:R",
              backendServer="postgres",
-             host=config.redis.server,
-             password=config.redis.password,
-             db=5)
+             server=config.webservice)
 }
