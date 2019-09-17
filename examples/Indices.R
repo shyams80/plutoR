@@ -10,6 +10,7 @@ indices<-Indices()
 
 # fetch the last 10 day India VIX levels
 
+print("running...")
 indices$IndiaVixTimeSeries() %>%
   top_n(10, wt=TIME_STAMP) %>%
   print(n=Inf)
