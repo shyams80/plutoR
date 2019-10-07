@@ -74,5 +74,17 @@ Indices <- setRefClass('Indices',
 
        return(tbl(.self$connUs2, 'BARCLAYS_DATA') %>%
                 select(TICKER, TIME_STAMP, CLOSE = VAL))
+     },
+     WilshireMeta = function(){
+       "Grab the ID to access the time-series"
+
+       return(tbl(.self$connUs2, 'WILSHIRE_INDEX_META') %>%
+                select(ID, NAME = INDEX_NAME))
+     },
+     WilshireTimeSeries = function(){
+       "Query the index time-series published by Wilshire"
+
+       return(tbl(.self$connUs2, 'WILSHIRE_INDEX_DATA') %>%
+                select(ID, TIME_STAMP, CLOSE = TR))
      }
   ))

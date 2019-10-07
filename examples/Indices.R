@@ -99,3 +99,12 @@ indices$BarclaysMeta() %>%
   arrange(FAMILY) %>%
   print(n = Inf)
 
+# fetch index date ranges published by Wilshire
+
+indices$WilshireMeta() %>%
+  inner_join(indices$WilshireTimeSeries()) %>%
+  group_by(NAME) %>%
+  summarize(ST = min(TIME_STAMP), ET = max(TIME_STAMP)) %>%
+  select(NAME, ST, ET) %>%
+  arrange(ST) %>%
+  print(n = Inf)
