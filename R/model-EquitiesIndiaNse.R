@@ -82,5 +82,11 @@ EquitiesIndiaNse <- setRefClass('EquitiesIndiaNse',
 
       return(tbl(.self$conn, 'CORP_RESULTS_QTR_NSE') %>%
                select(REF_ID, H1, H2, H3, H4, KEY = K, VALUE = V))
+    },
+    ShareholdingPatternRaw = function(){
+      "Query and parse Share-holding patterns"
+
+      return(tbl(.self$conn, 'SHARE_HOLDING_PATTERN2') %>%
+               select(SYMBOL, TIME_STAMP = AS_OF, VALUE, KEY))
     }
   ))

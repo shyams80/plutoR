@@ -136,3 +136,13 @@ for(i in 1:nrow(refs)){
   }
 
 }
+
+# get raw ownership pattern of INFY
+
+print("raw ownership pattern of INFY")
+equitiesIndiaNse$ShareholdingPatternRaw() %>%
+  filter(SYMBOL == 'INFY' & KEY %like% "%scrr%") %>%
+  select(TIME_STAMP, VALUE, KEY) %>%
+  arrange(TIME_STAMP) %>%
+  head(10) %>%
+  print(n=Inf)
