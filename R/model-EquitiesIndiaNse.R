@@ -89,4 +89,11 @@ EquitiesIndiaNse <- setRefClass('EquitiesIndiaNse',
       return(tbl(.self$conn, 'SHARE_HOLDING_PATTERN2') %>%
                select(SYMBOL, TIME_STAMP = AS_OF, VALUE, KEY))
     }
+    ,
+    ShareholdingPatternXbrl = function(){
+      "Query and parse Share-holding patterns where data is made available in XBRL files"
+
+      return(tbl(.self$conn, 'SHARE_HOLDING_PATTERN_XBRL') %>%
+               select(SYMBOL, TIME_STAMP = AS_OF, KEY_1 = K1, KEY_2 = K2, VALUE = V))
+    }
   ))

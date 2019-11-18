@@ -146,3 +146,15 @@ equitiesIndiaNse$ShareholdingPatternRaw() %>%
   arrange(TIME_STAMP) %>%
   head(10) %>%
   print(n=Inf)
+
+# get raw ownership pattern of 3MINDIA
+
+print("xbrl ownership pattern of 3MINDIA")
+equitiesIndiaNse$ShareholdingPatternXbrl() %>%
+  filter(SYMBOL == 'INFY'
+         & KEY_1 == "ShareholdingOfPromoterAndPromoterGroup"
+         & KEY_2 == "ShareholdingAsAPercentageOfTotalNumberOfShares") %>%
+  select(TIME_STAMP, KEY_1, KEY_2, VALUE) %>%
+  arrange(desc(TIME_STAMP)) %>%
+  head(10) %>%
+  print(n=Inf)
